@@ -9,37 +9,40 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root{--accent:#7CFF6B; /* vert pomme */ --accent-d:#4bd83b}
+    :root{
+      --accent:#2b8fff; /* bleu principal */
+      --accent-d:#1760c7; /* bleu foncé */
+    }
     html{scroll-behavior:smooth}
-    body{margin:0;font-family:Inter,sans-serif;background:#0d0d0e;color:#f1f1f1}
-    header{background:#121214;display:flex;align-items:center;justify-content:space-between;padding:15px 40px;position:sticky;top:0;z-index:10;box-shadow:0 2px 10px rgba(0,0,0,0.6)}
+    body{margin:0;font-family:Inter,sans-serif;background:#0b0c10;color:#f1f1f1}
+    header{background:#0e1118;display:flex;align-items:center;justify-content:space-between;padding:15px 40px;position:sticky;top:0;z-index:10;box-shadow:0 2px 12px rgba(0,0,0,0.8);border-bottom:2px solid var(--accent)}
     header a.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-    header img{height:60px;border-radius:6px}
+    header img{height:60px;border-radius:6px;border:2px solid var(--accent)}
     nav a{color:#d0d0d0;text-decoration:none;margin:0 12px;transition:color .3s, border-color .3s}
-    nav a:hover{color:white;border-bottom:2px solid var(--accent)}
-    section{padding:60px 10%;border-bottom:1px solid #1f1f1f}
+    nav a:hover{color:var(--accent);border-bottom:2px solid var(--accent)}
+    section{padding:60px 10%;border-bottom:1px solid #1a1a22}
     h1,h2{color:white}
-    .hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:80px 10%;background:linear-gradient(180deg,#0c0c0d,#18181a)}
-    .hero h1{font-size:42px;margin:20px 0}
+    .hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:80px 10%;background:linear-gradient(180deg,#0d0f15,#111626)}
+    .hero h1{font-size:42px;margin:20px 0;color:var(--accent)}
     .hero p{color:#bdbdbd;max-width:760px}
-    .chip{display:inline-block;margin-top:8px;border:1px solid #2a2a2a;border-left:6px solid var(--accent);padding:8px 12px;border-radius:999px;color:#cfcfcf}
+    .chip{display:inline-block;margin-top:8px;border:1px solid var(--accent);border-left:6px solid var(--accent-d);padding:8px 12px;border-radius:999px;color:#cfcfcf;background:rgba(43,143,255,0.1)}
 
-    .btn{background:#222;border:1px solid #2f2f2f;color:white;padding:12px 24px;border-radius:10px;margin:10px;cursor:pointer;transition:transform .25s, box-shadow .25s, background .25s, border .25s;box-shadow:inset 0 0 0 1px #2a2a2a}
-    .btn:hover{background:#2a2a2a;transform:translateY(-2px);border-color:var(--accent)}
+    .btn{background:#151a25;border:1px solid var(--accent-d);color:white;padding:12px 24px;border-radius:10px;margin:10px;cursor:pointer;transition:transform .25s, box-shadow .25s, background .25s, border .25s;box-shadow:inset 0 0 0 1px #1d2230}
+    .btn:hover{background:var(--accent-d);transform:translateY(-2px);border-color:var(--accent)}
     .btn:active{transform:translateY(1px) scale(0.98)}
-    .btn.cta{border-color:var(--accent);box-shadow:0 0 0 2px rgba(124,255,107,0.15)}
+    .btn.cta{border-color:var(--accent);box-shadow:0 0 10px rgba(43,143,255,0.4)}
 
     .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:15px;margin-top:25px}
-    .gallery img{width:100%;border-radius:12px;object-fit:cover;transition:transform .4s}
-    .gallery img:hover{transform:scale(1.03)}
+    .gallery img{width:100%;border-radius:12px;object-fit:cover;transition:transform .4s, box-shadow .4s;border:2px solid var(--accent-d)}
+    .gallery img:hover{transform:scale(1.03);box-shadow:0 0 20px rgba(43,143,255,0.4)}
 
-    .review{background:#18181a;padding:18px;border-radius:12px;margin:10px 0;color:#d0d0d0;box-shadow:0 4px 14px rgba(0,0,0,0.4);border-left:4px solid var(--accent)}
+    .review{background:#10141f;padding:18px;border-radius:12px;margin:10px 0;color:#d0d0d0;box-shadow:0 4px 14px rgba(0,0,0,0.5);border-left:4px solid var(--accent)}
     .review small{color:#9a9a9a}
 
-    footer{background:#121214;padding:20px;text-align:center;color:#888}
+    footer{background:#0d111a;padding:20px;text-align:center;color:#aaa;border-top:2px solid var(--accent-d)}
 
     form.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;max-width:800px;margin:auto}
-    input,textarea,select{background:#18181a;border:1px solid #2a2a2a;border-radius:10px;padding:12px;color:white;width:100%}
+    input,textarea,select{background:#0f1420;border:1px solid #2a2a2a;border-radius:10px;padding:12px;color:white;width:100%;box-shadow:inset 0 0 6px rgba(43,143,255,0.2)}
     textarea{grid-column:1/3;resize:vertical}
     button{grid-column:1/3}
   </style>
@@ -48,7 +51,7 @@
   <header>
     <a class="brand" href="#accueil" title="Retour en haut">
       <img src="logo.jpg" alt="Logo Pure Touch" />
-      <strong style="color:#eaeaea">PURE TOUCH</strong>
+      <strong style="color:var(--accent)">PURE TOUCH</strong>
     </a>
     <nav>
       <a href="#accueil">Accueil</a>
@@ -70,7 +73,7 @@
   </section>
 
   <section id="travaux">
-    <h2>Nos Travaux (avant / après)</h2>
+    <h2 style="color:var(--accent)">Nos Travaux (avant / après)</h2>
     <p>Quelques exemples : filtres labyrinthes, gaines, extracteurs, plénums…</p>
     <div class="gallery">
       <img src="av apr.png" alt="Avant après hotte" />
@@ -81,12 +84,12 @@
   </section>
 
   <section id="histoire">
-    <h2>Mon histoire</h2>
+    <h2 style="color:var(--accent)">Mon histoire</h2>
     <p>Il y a presque <strong>8 ans</strong>, j’ai commencé avec un karcher d’occasion et beaucoup de motivation. Les premières nuits, je finissais tard, les mains noires de graisse, mais avec la fierté de rendre une cuisine plus sûre pour les équipes. De bouche à oreille, PURE TOUCH est devenu la petite boîte qui ne lâche rien : <em>ponctuels</em>, <em>soignés</em>, et toujours francs avec les clients. Aujourd’hui, on intervient dans toute l’Île‑de‑France, avec du matériel pro et des produits performants et certifiés, pour un résultat durable.</p>
   </section>
 
   <section id="avis">
-    <h2>Ils nous font confiance</h2>
+    <h2 style="color:var(--accent)">Ils nous font confiance</h2>
     <div id="reviews">
       <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Franchement au top, super pro et rapide ! ma hotte brille comme neuve. Merci Pure Touch 🙏 » <br><small>— Samir, Paris 12</small></div>
       <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Travail nickel chrome, equipe sympa et sérieuse. Je recommande 100% 👌 » <br><small>— Claire, Boulogne</small></div>
@@ -96,7 +99,7 @@
       <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Deuxième passage chez nous, toujours propre propre. Merci l’équipe. » <br><small>— Fatou, Montreuil</small></div>
     </div>
 
-    <h3 style="margin-top:28px">Laisser votre avis</h3>
+    <h3 style="margin-top:28px;color:var(--accent)">Laisser votre avis</h3>
     <form id="reviewForm" class="grid" autocomplete="off">
       <input type="text" id="rname" placeholder="Votre prénom ou établissement" required>
       <select id="rstars" aria-label="Note">
@@ -111,7 +114,7 @@
   </section>
 
   <section id="contact">
-    <h2>Nous Contacter</h2>
+    <h2 style="color:var(--accent)">Nous Contacter</h2>
     <p>Pour toute demande de devis ou intervention, contactez‑nous directement :</p>
     <div style="text-align:center;margin:20px 0">
       <a href="https://wa.me/33666166228" class="btn cta">📱 WhatsApp</a>
@@ -130,7 +133,6 @@
   </footer>
 
   <script>
-    // Formulaire d'avis : ajoute l'avis dans la liste (stockage local simple)
     const f = document.getElementById('reviewForm');
     const ul = document.getElementById('reviews');
     f?.addEventListener('submit', (e)=>{
@@ -144,9 +146,9 @@
       const starStr = '⭐️'.repeat(parseInt(stars));
       div.innerHTML = `${starStr} – « ${text} » <br><small>— ${name}</small>`;
       ul.prepend(div);
-      // reset
       f.reset();
     });
   </script>
 </body>
 </html>
+
