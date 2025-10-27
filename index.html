@@ -57,6 +57,36 @@
     input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(43,143,255,.15)}
     textarea{grid-column:1/3;resize:vertical}
     button{grid-column:1/3}
+      /* --- Responsive (tablettes & téléphones) --- */
+    nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+    section{scroll-margin-top:90px}
+    img{max-width:100%;height:auto}
+    p{word-break:break-word}
+
+    @media (max-width: 900px){
+      header{padding:12px 20px}
+      header img{height:52px}
+      .hero{padding:56px 8%}
+      .hero h1{font-size:34px}
+      .chip{font-size:14px}
+      section{padding:48px 8%}
+      .gallery{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+      form.grid{max-width:680px}
+    }
+
+    @media (max-width: 640px){
+      header{padding:10px 14px}
+      header img{height:46px}
+      nav a{margin:0 8px;font-size:14px}
+      .hero{padding:44px 6%}
+      .hero h1{font-size:28px;margin:14px 0}
+      .hero p{font-size:15px}
+      section{padding:36px 6%}
+      .gallery{grid-template-columns:1fr;gap:12px}
+      form.grid{grid-template-columns:1fr;gap:12px;max-width:520px}
+      textarea{grid-column:auto}
+      button.btn, .btn{width:100%}
+    }
   </style>
 </head>
 <body>
