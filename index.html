@@ -10,39 +10,51 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --accent:#2b8fff; /* bleu principal */
-      --accent-d:#1760c7; /* bleu foncé */
+      --accent:#2b8fff;    /* bleu principal */
+      --accent-d:#1760c7;  /* bleu foncé */
+      --bg:#f6f7fb;        /* fond clair */
+      --panel:#ffffff;     /* cartes/blocs */
+      --ink:#0f172a;       /* texte principal (bleu-nuit) */
+      --muted:#5b657a;     /* texte secondaire */
+      --line:#e7ebf3;      /* séparateurs */
     }
     html{scroll-behavior:smooth}
-    body{margin:0;font-family:Inter,sans-serif;background:#0b0c10;color:#f1f1f1}
-    header{background:#0e1118;display:flex;align-items:center;justify-content:space-between;padding:15px 40px;position:sticky;top:0;z-index:10;box-shadow:0 2px 12px rgba(0,0,0,0.8);border-bottom:2px solid var(--accent)}
+    body{margin:0;font-family:Inter,sans-serif;background:linear-gradient(180deg,#fff, var(--bg));color:var(--ink)}
+
+    header{background:var(--panel);display:flex;align-items:center;justify-content:space-between;padding:15px 40px;position:sticky;top:0;z-index:10;border-bottom:2px solid var(--line);box-shadow:0 4px 10px rgba(15,23,42,0.04)}
     header a.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
     header img{height:60px;border-radius:6px;border:2px solid var(--accent)}
-    nav a{color:#d0d0d0;text-decoration:none;margin:0 12px;transition:color .3s, border-color .3s}
-    nav a:hover{color:var(--accent);border-bottom:2px solid var(--accent)}
-    section{padding:60px 10%;border-bottom:1px solid #1a1a22}
-    h1,h2{color:white}
-    .hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:80px 10%;background:linear-gradient(180deg,#0d0f15,#111626)}
-    .hero h1{font-size:42px;margin:20px 0;color:var(--accent)}
-    .hero p{color:#bdbdbd;max-width:760px}
-    .chip{display:inline-block;margin-top:8px;border:1px solid var(--accent);border-left:6px solid var(--accent-d);padding:8px 12px;border-radius:999px;color:#cfcfcf;background:rgba(43,143,255,0.1)}
+    header strong{color:var(--accent)}
+    nav a{color:#384459;text-decoration:none;margin:0 12px;padding-bottom:6px;border-bottom:2px solid transparent;transition:color .2s, border-color .2s}
+    nav a:hover{color:var(--accent);border-color:var(--accent)}
 
-    .btn{background:#151a25;border:1px solid var(--accent-d);color:white;padding:12px 24px;border-radius:10px;margin:10px;cursor:pointer;transition:transform .25s, box-shadow .25s, background .25s, border .25s;box-shadow:inset 0 0 0 1px #1d2230}
-    .btn:hover{background:var(--accent-d);transform:translateY(-2px);border-color:var(--accent)}
-    .btn:active{transform:translateY(1px) scale(0.98)}
-    .btn.cta{border-color:var(--accent);box-shadow:0 0 10px rgba(43,143,255,0.4)}
+    section{padding:60px 10%;border-bottom:1px solid var(--line)}
+    h1{color:#0b1b38}
+    h2{color:#0b1b38}
+    .sub{color:var(--muted)}
 
-    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:15px;margin-top:25px}
-    .gallery img{width:100%;border-radius:12px;object-fit:cover;transition:transform .4s, box-shadow .4s;border:2px solid var(--accent-d)}
-    .gallery img:hover{transform:scale(1.03);box-shadow:0 0 20px rgba(43,143,255,0.4)}
+    .hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:80px 10%;background:linear-gradient(180deg,#ffffff, #f3f7ff)}
+    .hero h1{font-size:42px;margin:20px 0}
+    .chip{display:inline-block;margin-top:8px;border:1px solid var(--accent);border-left:6px solid var(--accent-d);padding:8px 12px;border-radius:999px;color:#1e2a3c;background:rgba(43,143,255,0.08)}
+    .hero p{color:#3b465a;max-width:760px}
 
-    .review{background:#10141f;padding:18px;border-radius:12px;margin:10px 0;color:#d0d0d0;box-shadow:0 4px 14px rgba(0,0,0,0.5);border-left:4px solid var(--accent)}
-    .review small{color:#9a9a9a}
+    .btn{background:var(--panel);border:1px solid var(--accent);color:var(--accent);padding:12px 24px;border-radius:12px;margin:10px;cursor:pointer;transition:transform .2s, box-shadow .2s, background .2s, color .2s}
+    .btn:hover{background:var(--accent);color:#fff;transform:translateY(-1px);box-shadow:0 8px 22px rgba(43,143,255,.25)}
+    .btn:active{transform:translateY(1px) scale(.99)}
+    .btn.cta{box-shadow:0 0 0 2px rgba(43,143,255,.25)}
 
-    footer{background:#0d111a;padding:20px;text-align:center;color:#aaa;border-top:2px solid var(--accent-d)}
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:25px}
+    .gallery img{width:100%;border-radius:14px;object-fit:cover;transition:transform .25s, box-shadow .25s;border:3px solid rgba(43,143,255,.35);background:#fff}
+    .gallery img:hover{transform:scale(1.02);box-shadow:0 12px 28px rgba(43,143,255,.2)}
+
+    .review{background:var(--panel);padding:18px;border-radius:14px;margin:12px 0;color:#1f2a3f;border:1px solid var(--line);box-shadow:0 6px 16px rgba(15,23,42,0.06);border-left:4px solid var(--accent)}
+    .review small{color:#6b7486}
+
+    footer{background:var(--panel);padding:20px;text-align:center;color:#5d6a81;border-top:1px solid var(--line)}
 
     form.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;max-width:800px;margin:auto}
-    input,textarea,select{background:#0f1420;border:1px solid #2a2a2a;border-radius:10px;padding:12px;color:white;width:100%;box-shadow:inset 0 0 6px rgba(43,143,255,0.2)}
+    input,textarea,select{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;color:var(--ink);width:100%;box-shadow:inset 0 1px 0 rgba(15,23,42,0.03)}
+    input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(43,143,255,.15)}
     textarea{grid-column:1/3;resize:vertical}
     button{grid-column:1/3}
   </style>
@@ -51,7 +63,7 @@
   <header>
     <a class="brand" href="#accueil" title="Retour en haut">
       <img src="logo.jpg" alt="Logo Pure Touch" />
-      <strong style="color:var(--accent)">PURE TOUCH</strong>
+      <strong>PURE TOUCH</strong>
     </a>
     <nav>
       <a href="#accueil">Accueil</a>
@@ -65,16 +77,27 @@
   <section id="accueil" class="hero">
     <span class="chip">Île‑de‑France • Intervention 7j/7 • Bientôt 8 ans d’expérience</span>
     <h1>L’art du nettoyage sur mesure</h1>
-    <p>Spécialiste du <strong>nettoyage de hottes et systèmes de ventilation</strong> pour restaurants, hôtels, dark kitchens et collectivités. On bosse avec les <strong>meilleurs produits et outils du marché</strong> pour un rendu net, sûr et conforme.</p>
+    <p>Spécialiste du nettoyage et de l’entretien des hottes professionnelles, nous accompagnons les restaurants, hôtels, dark kitchens et collectivités dans la mise en conformité de leurs installations.</p>
+    <p>Un système d’extraction mal entretenu augmente considérablement les risques d’incendie et peut entraîner un refus lors des contrôles réglementaires. Nos interventions garantissent une hygiène parfaite et une sécurité maximale, en conformité avec les exigences des assureurs et des commissions de sécurité.</p>
+    <p>Nous utilisons des produits certifiés et des équipements de dernière génération pour un nettoyage en profondeur des conduits, moteurs et filtres.</p>
+    <p><strong>Notre objectif :</strong> vous offrir une cuisine propre, conforme et sécurisée, tout en prolongeant la durée de vie de vos installations et en assurant la tranquillité de vos équipes.</p>
     <div>
       <a href="https://wa.me/33666166228" class="btn cta">Contact WhatsApp</a>
       <a href="mailto:puretouch.nettoyage@outlook.com" class="btn">Envoyer un mail</a>
     </div>
   </section>
 
+  <section id="histoire">
+    <h2>Mon histoire</h2>
+    <p>Nous avons débuté notre parcours au sein d’une entreprise spécialisée dans le nettoyage et le dégraissage de hottes professionnelles. Ces années d’expérience sur le terrain nous ont permis d’acquérir une expertise solide et une réelle exigence de qualité.</p>
+    <p>Animés par l’envie d’offrir un service plus proche, réactif et rigoureux, nous avons décidé de créer notre propre entreprise.</p>
+    <p>Aujourd’hui, nous mettons tout notre savoir-faire au service des restaurants, hôtels, dark kitchens et collectivités. Notre mission : garantir des installations propres, conformes et sécurisées, réduire les risques d’incendie et assurer la tranquillité des professionnels face aux contrôles et obligations réglementaires.</p>
+    <p>Chez nous, chaque intervention est réalisée avec le même engagement : un travail soigné, des produits de qualité et un véritable souci du détail.</p>
+  </section>
+
   <section id="travaux">
-    <h2 style="color:var(--accent)">Nos Travaux (avant / après)</h2>
-    <p>Quelques exemples : filtres labyrinthes, gaines, extracteurs, plénums…</p>
+    <h2>Nos Travaux (avant / après)</h2>
+    <p class="sub">Quelques exemples : filtres labyrinthes, gaines, extracteurs, plénums…</p>
     <div class="gallery">
       <img src="av apr.png" alt="Avant après hotte" />
       <img src="avt1.jpg" alt="Filtre avant nettoyage" />
@@ -83,13 +106,8 @@
     </div>
   </section>
 
-  <section id="histoire">
-    <h2 style="color:var(--accent)">Mon histoire</h2>
-    <p>Il y a presque <strong>8 ans</strong>, j’ai commencé avec un karcher d’occasion et beaucoup de motivation. Les premières nuits, je finissais tard, les mains noires de graisse, mais avec la fierté de rendre une cuisine plus sûre pour les équipes. De bouche à oreille, PURE TOUCH est devenu la petite boîte qui ne lâche rien : <em>ponctuels</em>, <em>soignés</em>, et toujours francs avec les clients. Aujourd’hui, on intervient dans toute l’Île‑de‑France, avec du matériel pro et des produits performants et certifiés, pour un résultat durable.</p>
-  </section>
-
   <section id="avis">
-    <h2 style="color:var(--accent)">Ils nous font confiance</h2>
+    <h2>Ils nous font confiance</h2>
     <div id="reviews">
       <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Franchement au top, super pro et rapide ! ma hotte brille comme neuve. Merci Pure Touch 🙏 » <br><small>— Samir, Paris 12</small></div>
       <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Travail nickel chrome, equipe sympa et sérieuse. Je recommande 100% 👌 » <br><small>— Claire, Boulogne</small></div>
@@ -99,7 +117,7 @@
       <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Deuxième passage chez nous, toujours propre propre. Merci l’équipe. » <br><small>— Fatou, Montreuil</small></div>
     </div>
 
-    <h3 style="margin-top:28px;color:var(--accent)">Laisser votre avis</h3>
+    <h3 style="margin-top:28px">Laisser votre avis</h3>
     <form id="reviewForm" class="grid" autocomplete="off">
       <input type="text" id="rname" placeholder="Votre prénom ou établissement" required>
       <select id="rstars" aria-label="Note">
@@ -110,12 +128,12 @@
       <textarea id="rtext" placeholder="Votre commentaire (quelques mots suffisent)" required></textarea>
       <button type="submit" class="btn cta">Publier mon avis</button>
     </form>
-    <p style="color:#9a9a9a;text-align:center;margin-top:8px">Les avis ajoutés ici s’affichent directement sur la page (en local).</p>
+    <p class="sub" style="text-align:center;margin-top:8px">Les avis ajoutés ici s’affichent directement sur la page (en local).</p>
   </section>
 
   <section id="contact">
-    <h2 style="color:var(--accent)">Nous Contacter</h2>
-    <p>Pour toute demande de devis ou intervention, contactez‑nous directement :</p>
+    <h2>Nous Contacter</h2>
+    <p class="sub">Pour toute demande de devis ou intervention, contactez‑nous directement :</p>
     <div style="text-align:center;margin:20px 0">
       <a href="https://wa.me/33666166228" class="btn cta">📱 WhatsApp</a>
       <a href="mailto:puretouch.nettoyage@outlook.com" class="btn">📧 Email</a>
