@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PURE TOUCH – Nettoyage de hottes & ventilation Île‑de‑France</title>
-  <meta name="description" content="PURE TOUCH : spécialiste du nettoyage de hottes et systèmes de ventilation partout en Île‑de‑France. Bientôt 8 ans d'expérience. Meilleurs produits & outils du marché." />
+  <title>PURE TOUCH – Nettoyage de hottes & ventilation Île-de-France</title>
+  <meta name="description" content="PURE TOUCH : spécialiste du nettoyage de hottes et systèmes de ventilation partout en Île-de-France. Bientôt 8 ans d'expérience. Meilleurs produits & outils du marché." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --accent:#2b8fff;    /* bleu principal */
-      --accent-d:#1760c7;  /* bleu foncé */
-      --bg:#f6f7fb;        /* fond clair */
-      --panel:#ffffff;     /* cartes/blocs */
-      --ink:#0f172a;       /* texte principal (bleu-nuit) */
-      --muted:#5b657a;     /* texte secondaire */
-      --line:#e7ebf3;      /* séparateurs */
+      --accent:#2b8fff;
+      --accent-d:#1760c7;
+      --bg:#f6f7fb;
+      --panel:#ffffff;
+      --ink:#0f172a;
+      --muted:#5b657a;
+      --line:#e7ebf3;
     }
     html{scroll-behavior:smooth}
     body{margin:0;font-family:Inter,sans-serif;background:linear-gradient(180deg,#fff, var(--bg));color:var(--ink)}
@@ -38,7 +38,8 @@
     .chip{display:inline-block;margin-top:8px;border:1px solid var(--accent);border-left:6px solid var(--accent-d);padding:8px 12px;border-radius:999px;color:#1e2a3c;background:rgba(43,143,255,0.08)}
     .hero p{color:#3b465a;max-width:760px}
 
-    .btn{background:var(--panel);border:1px solid var(--accent);color:var(--accent);padding:12px 24px;border-radius:12px;margin:10px;cursor:pointer;transition:transform .2s, box-shadow .2s, background .2s, color .2s}
+    .hero .btn-container{display:flex;flex-direction:row;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:20px}
+    .btn{background:var(--panel);border:1px solid var(--accent);color:var(--accent);padding:12px 24px;border-radius:12px;cursor:pointer;transition:transform .2s, box-shadow .2s, background .2s, color .2s}
     .btn:hover{background:var(--accent);color:#fff;transform:translateY(-1px);box-shadow:0 8px 22px rgba(43,143,255,.25)}
     .btn:active{transform:translateY(1px) scale(.99)}
     .btn.cta{box-shadow:0 0 0 2px rgba(43,143,255,.25)}
@@ -57,35 +58,10 @@
     input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(43,143,255,.15)}
     textarea{grid-column:1/3;resize:vertical}
     button{grid-column:1/3}
-      /* --- Responsive (tablettes & téléphones) --- */
-    nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
-    section{scroll-margin-top:90px}
-    img{max-width:100%;height:auto}
-    p{word-break:break-word}
-
-    @media (max-width: 900px){
-      header{padding:12px 20px}
-      header img{height:52px}
-      .hero{padding:56px 8%}
-      .hero h1{font-size:34px}
-      .chip{font-size:14px}
-      section{padding:48px 8%}
-      .gallery{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-      form.grid{max-width:680px}
-    }
 
     @media (max-width: 640px){
-      header{padding:10px 14px}
-      header img{height:46px}
-      nav a{margin:0 8px;font-size:14px}
-      .hero{padding:44px 6%}
-      .hero h1{font-size:28px;margin:14px 0}
-      .hero p{font-size:15px}
-      section{padding:36px 6%}
-      .gallery{grid-template-columns:1fr;gap:12px}
-      form.grid{grid-template-columns:1fr;gap:12px;max-width:520px}
-      textarea{grid-column:auto}
-      button.btn, .btn{width:100%}
+      .hero .btn-container{flex-direction:column;align-items:center}
+      .hero .btn{width:100%;max-width:280px}
     }
   </style>
 </head>
@@ -111,7 +87,7 @@
     <p>Un système d’extraction mal entretenu augmente considérablement les risques d’incendie et peut entraîner un refus lors des contrôles réglementaires. Nos interventions garantissent une hygiène parfaite et une sécurité maximale, en conformité avec les exigences des assureurs et des commissions de sécurité.</p>
     <p>Nous utilisons des produits certifiés et des équipements de dernière génération pour un nettoyage en profondeur des conduits, moteurs et filtres.</p>
     <p><strong>Notre objectif :</strong> vous offrir une cuisine propre, conforme et sécurisée, tout en prolongeant la durée de vie de vos installations et en assurant la tranquillité de vos équipes.</p>
-    <div>
+    <div class="btn-container">
       <a href="https://wa.me/33666166228" class="btn cta">Contact WhatsApp</a>
       <a href="mailto:puretouch.nettoyage@outlook.com" class="btn">Envoyer un mail</a>
     </div>
@@ -141,7 +117,7 @@
     <div id="reviews">
       <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Franchement au top, super pro et rapide ! ma hotte brille comme neuve. Merci Pure Touch 🙏 » <br><small>— Samir, Paris 12</small></div>
       <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Travail nickel chrome, equipe sympa et sérieuse. Je recommande 100% 👌 » <br><small>— Claire, Boulogne</small></div>
-      <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Un vrai pro, il connais son metier ! ca sent le propre maintenant 😂 » <br><small>— Marco, Saint‑Denis</small></div>
+      <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Un vrai pro, il connais son metier ! ca sent le propre maintenant 😂 » <br><small>— Marco, Saint-Denis</small></div>
       <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Intervention de nuit sans soucis, discret et efficace, super resultat ! » <br><small>— Aïcha, Nanterre</small></div>
       <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Rien a dire, respect des délais et attestation donnée, c'est carré. » <br><small>— Julien, Ivry</small></div>
       <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Deuxième passage chez nous, toujours propre propre. Merci l’équipe. » <br><small>— Fatou, Montreuil</small></div>
@@ -163,7 +139,7 @@
 
   <section id="contact">
     <h2>Nous Contacter</h2>
-    <p class="sub">Pour toute demande de devis ou intervention, contactez‑nous directement :</p>
+    <p class="sub">Pour toute demande de devis ou intervention, contactez-nous directement :</p>
     <div style="text-align:center;margin:20px 0">
       <a href="https://wa.me/33666166228" class="btn cta">📱 WhatsApp</a>
       <a href="mailto:puretouch.nettoyage@outlook.com" class="btn">📧 Email</a>
@@ -177,7 +153,7 @@
   </section>
 
   <footer>
-    <p>© 2025 PURE TOUCH — Nettoyage de hottes & ventilation | Île‑de‑France</p>
+    <p>© 2025 PURE TOUCH — Nettoyage de hottes & ventilation | Île-de-France</p>
   </footer>
 
   <script>
@@ -199,4 +175,3 @@
   </script>
 </body>
 </html>
-
