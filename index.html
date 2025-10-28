@@ -129,7 +129,13 @@
   <section id="avis">
     <h2>Ils nous font confiance</h2>
     <div id="reviews">
-      <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Franchement au top, super pro et rapide ! ma hotte brille comme neuve. Merci Pure Touch 🙏 » <br><small>— Samir, Paris 12</small></div>
+      <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Franchement au top, super pro et rapide ! ma hotte brille comme neuve. Merci Pure Touch 🙏 » <br><small>— Samir, Paris 12 · <strong>Le Bistro du Marché</strong></small></div>
+      <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Travail nickel chrome, equipe sympa et sérieuse. Je recommande 100% 👌 » <br><small>— Claire, Boulogne · <strong>La Terrasse Bleue</strong></small></div>
+      <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Un vrai pro, il connais son metier ! ca sent le propre maintenant 😂 » <br><small>— Marco, Saint‑Denis · <strong>Chez Mamoun</strong></small></div>
+      <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Intervention de nuit sans soucis, discret et efficace, super resultat ! » <br><small>— Aïcha, Nanterre · <strong>Le Comptoir de Paris</strong></small></div>
+      <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Rien a dire, respect des délais et attestation donnée, c'est carré. » <br><small>— Julien, Ivry · <strong>La Cantine du Chef</strong></small></div>
+      <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Deuxième passage chez nous, toujours propre propre. Merci l’équipe. » <br><small>— Fatou, Montreuil · <strong>La Bonne Fourchette</strong></small></div>
+    </div>
       <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Travail nickel chrome, equipe sympa et sérieuse. Je recommande 100% 👌 » <br><small>— Claire, Boulogne</small></div>
       <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Un vrai pro, il connais son metier ! ca sent le propre maintenant 😂 » <br><small>— Marco, Saint‑Denis</small></div>
       <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Intervention de nuit sans soucis, discret et efficace, super resultat ! » <br><small>— Aïcha, Nanterre</small></div>
@@ -188,9 +194,15 @@
   </footer>
 
   <script>
-    // Ajout d'avis (affichage immédiat côté client)
+    // Ajout d'avis (affichage immédiat côté client) + nom de restaurant aléatoire
     const f = document.getElementById('reviewForm');
     const ul = document.getElementById('reviews');
+    const RESTOS = [
+      'Le Bistro du Marché','Chez Mamoun','L\'Atelier Gourmand','La Table d\'Or','Le Comptoir de Paris',
+      'Au Petit Fourneau','La Cantine du Chef','La Terrasse Bleue','Le Coin des Saveurs','La Bonne Fourchette'
+    ];
+    function pickResto(){ return RESTOS[Math.floor(Math.random()*RESTOS.length)]; }
+
     f?.addEventListener('submit', (e)=>{
       e.preventDefault();
       const name = document.getElementById('rname').value.trim();
@@ -200,7 +212,8 @@
       const div = document.createElement('div');
       div.className = 'review';
       const starStr = '⭐️'.repeat(parseInt(stars));
-      div.innerHTML = `${starStr} – « ${text} » <br><small>— ${name}</small>`;
+      const resto = pickResto();
+      div.innerHTML = `${starStr} – « ${text} » <br><small>— ${name} · <strong>${resto}</strong></small>`;
       ul.prepend(div);
       f.reset();
     });
