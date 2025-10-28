@@ -70,6 +70,13 @@
       .hero .btn{width:100%;max-width:280px}
       .gallery{grid-template-columns:1fr}
     }
+      /* Tooltips propres pour les points forts (hover/focus) */
+    .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:18px 0 36px}
+    .feature{background:rgba(255,255,255,.9);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:14px 16px;position:relative}
+    .feature strong{color:var(--accent)}
+    .feature::after{content:attr(data-tip);position:absolute;left:0;right:0;top:100%;margin-top:10px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:12px 14px;color:var(--ink);box-shadow:0 10px 24px rgba(15,23,42,.08);opacity:0;transform:translateY(4px);transition:opacity .2s, transform .2s;pointer-events:none;z-index:2}
+    .feature:hover::after,.feature:focus-within::after{opacity:1;transform:translateY(0)}
+    .contact-actions{text-align:center;margin:20px 0 28px}
   </style>
 </head>
 <body>
@@ -88,7 +95,7 @@
   </header>
 
   <section id="accueil" class="hero">
-    <span class="chip">Île‑de‑France • Intervention 7j/7 • Bientôt 8 ans d’expérience</span>
+    <span class="chip">Île‑de‑France • Intervention 7j/7</span>
     <h1>L’art du nettoyage sur mesure</h1>
     <p>Spécialiste du nettoyage et de l’entretien des hottes professionnelles, nous accompagnons les restaurants, hôtels, dark kitchens et collectivités dans la mise en conformité de leurs installations.</p>
     <p>Un système d’extraction mal entretenu augmente considérablement les risques d’incendie et peut entraîner un refus lors des contrôles réglementaires. Nos interventions garantissent une hygiène parfaite et une sécurité maximale, en conformité avec les exigences des assureurs et des commissions de sécurité.</p>
@@ -100,7 +107,7 @@
     </div>
   </section>
 
-  <section id="histoire">
+    <section id="histoire">
     <h2>Mon histoire</h2>
     <p>Nous avons débuté notre parcours au sein d’une entreprise spécialisée dans le nettoyage et le dégraissage de hottes professionnelles. Ces années d’expérience sur le terrain nous ont permis d’acquérir une expertise solide et une réelle exigence de qualité.</p>
     <p>Animés par l’envie d’offrir un service plus proche, réactif et rigoureux, nous avons décidé de créer notre propre entreprise.</p>
@@ -124,7 +131,7 @@
     <div id="reviews">
       <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Franchement au top, super pro et rapide ! ma hotte brille comme neuve. Merci Pure Touch 🙏 » <br><small>— Samir, Paris 12</small></div>
       <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Travail nickel chrome, equipe sympa et sérieuse. Je recommande 100% 👌 » <br><small>— Claire, Boulogne</small></div>
-      <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Un vrai pro, il connais son metier ! ca sent le propre maintenant 😂 » <br><small>— Marco, Saint-Denis</small></div>
+      <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Un vrai pro, il connais son metier ! ca sent le propre maintenant 😂 » <br><small>— Marco, Saint‑Denis</small></div>
       <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Intervention de nuit sans soucis, discret et efficace, super resultat ! » <br><small>— Aïcha, Nanterre</small></div>
       <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Rien a dire, respect des délais et attestation donnée, c'est carré. » <br><small>— Julien, Ivry</small></div>
       <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Deuxième passage chez nous, toujours propre propre. Merci l’équipe. » <br><small>— Fatou, Montreuil</small></div>
@@ -145,11 +152,29 @@
 
   <section id="contact">
     <h2>Nous Contacter</h2>
-    <p class="sub">Pour toute demande de devis ou intervention, contactez-nous directement :</p>
-    <div style="text-align:center;margin:20px 0">
+    <p class="sub">Pour toute demande de devis ou intervention, contactez‑nous directement :</p>
+
+    <!-- Points forts (cartes + info-bulles) -->
+    <div class="feature-grid">
+      <div class="feature" tabindex="0" role="button" data-tip="Nos tarifs sont étudiés au cas par cas : surface, état de la hotte, accès. On vous donne un prix clair et sans surprise avant intervention.">
+        <strong>Prix attractifs</strong>
+        <p class="sub" style="margin:6px 0 0">Des tarifs clairs, <em>défiant toute concurrence</em>, sans surprise.</p>
+      </div>
+      <div class="feature" tabindex="0" role="button" data-tip="Besoin urgent ? On se cale rapidement et on passe sous 24 à 48h selon la zone et le créneau (même de nuit si besoin).">
+        <strong>Réactivité supérieure</strong>
+        <p class="sub" style="margin:6px 0 0">Interventions urgentes sous <strong>24/48h</strong> selon disponibilité.</p>
+      </div>
+      <div class="feature" tabindex="0" role="button" data-tip="On planifie 1 à 3 passages/an selon votre volume et vos obligations. Vous recevez rapport photo + attestation pour votre registre.">
+        <strong>Service personnalisé</strong>
+        <p class="sub" style="margin:6px 0 0">Contrats de suivi et <strong>maintenance régulière</strong> (jusqu’à <strong>3 passages/an</strong>).</p>
+      </div>
+    </div>
+
+    <div class="contact-actions">
       <a href="https://wa.me/33666166228" class="btn cta">📱 WhatsApp</a>
       <a href="mailto:puretouch.nettoyage@outlook.com" class="btn">📧 Email</a>
     </div>
+
     <form action="mailto:puretouch.nettoyage@outlook.com" method="post" enctype="text/plain" class="grid">
       <input type="text" name="Nom" placeholder="Votre nom" required />
       <input type="tel" name="Téléphone" placeholder="Votre numéro" />
@@ -159,10 +184,11 @@
   </section>
 
   <footer>
-    <p>© 2025 PURE TOUCH — Nettoyage de hottes & ventilation | Île-de-France</p>
+    <p>© 2025 PURE TOUCH — Nettoyage de hottes & ventilation | Île‑de‑France</p>
   </footer>
 
   <script>
+    // Ajout d'avis (affichage immédiat côté client)
     const f = document.getElementById('reviewForm');
     const ul = document.getElementById('reviews');
     f?.addEventListener('submit', (e)=>{
