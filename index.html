@@ -9,56 +9,62 @@
     :root{
       --accent:#2b8fff;
       --accent-d:#1760c7;
-      --bg1:#7db9e8;
-      --bg2:#a1c9e2;
-      --bg3:#b7d4dd;
-      --bg4:#c6d8da;
+      --bg1:#f6fbff;
+      --bg2:#eef6fc;
       --panel:#ffffff;
       --ink:#0f172a;
       --muted:#5b657a;
       --line:#e7ebf3;
     }
     html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:Inter,sans-serif;
-      background:linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3),var(--bg4));
-      background-attachment:fixed;
-      color:var(--ink);
-    }
+    body{margin:0;font-family:Inter,sans-serif;background:linear-gradient(180deg,var(--bg1),var(--bg2));color:var(--ink)}
 
-    header{background:rgba(255,255,255,0.95);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:space-between;padding:15px 40px;position:sticky;top:0;z-index:10;border-bottom:2px solid var(--line);box-shadow:0 4px 10px rgba(15,23,42,0.04)}
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;padding:15px 40px;background:rgba(255,255,255,0.95);border-bottom:2px solid var(--line);box-shadow:0 4px 10px rgba(15,23,42,0.04);position:sticky;top:0;z-index:10}
     header a.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-    header img{height:60px;border-radius:6px;border:2px solid var(--accent)}
-    header strong{color:var(--accent)}
-    nav a{color:#384459;text-decoration:none;margin:0 12px;padding-bottom:6px;border-bottom:2px solid transparent;transition:color .2s, border-color .2s}
+    header img{height:80px;border-radius:6px;border:2px solid var(--accent)}
+    header strong{color:var(--accent);font-size:22px;letter-spacing:1px}
+    nav a{color:#384459;text-decoration:none;margin:0 12px;padding-bottom:6px;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
     nav a:hover{color:var(--accent);border-color:var(--accent)}
 
-    section{padding:60px 10%;border-bottom:1px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.6);backdrop-filter:blur(3px);border-radius:12px;margin:20px}
-    h1{color:#0b1b38}
-    h2{color:#0b1b38}
+    /* Sections */
+    section{padding:60px 10%;border-bottom:1px solid rgba(15,23,42,0.05);background:rgba(255,255,255,0.7);backdrop-filter:blur(3px);border-radius:12px;margin:20px}
+    h1,h2{color:#0b1b38}
     .sub{color:var(--muted)}
 
-    .hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:80px 10%;background:rgba(255,255,255,0.5);border-radius:12px;box-shadow:0 8px 20px rgba(15,23,42,0.05)}
-    .hero h1{font-size:42px;margin:20px 0}
-    .chip{display:inline-block;margin-top:8px;border:1px solid var(--accent);border-left:6px solid var(--accent-d);padding:8px 12px;border-radius:999px;color:#1e2a3c;background:rgba(43,143,255,0.08)}
-    .hero p{color:#3b465a;max-width:760px}
-
-    .hero .btn-container{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:20px}
-    .btn{background:var(--panel);border:1px solid var(--accent);color:var(--accent);padding:12px 24px;border-radius:12px;cursor:pointer;transition:transform .2s, box-shadow .2s, background .2s, color .2s}
+    /* Hero */
+    .hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:80px 10%;background:rgba(255,255,255,0.7);border-radius:12px;box-shadow:0 8px 20px rgba(15,23,42,0.05)}
+    .hero-logo{width:220px;height:auto;margin-bottom:16px;border:3px solid var(--accent);border-radius:10px;box-shadow:0 6px 16px rgba(43,143,255,.25)}
+    .chip{display:inline-block;margin-bottom:8px;border:1px solid var(--accent);border-left:6px solid var(--accent-d);padding:8px 12px;border-radius:999px;color:#1e2a3c;background:rgba(43,143,255,0.08)}
+    .btn{background:var(--panel);border:1px solid var(--accent);color:var(--accent);padding:12px 24px;border-radius:12px;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
     .btn:hover{background:var(--accent);color:#fff;transform:translateY(-1px);box-shadow:0 8px 22px rgba(43,143,255,.25)}
     .btn:active{transform:translateY(1px) scale(.99)}
-    .btn.cta{box-shadow:0 0 0 2px rgba(43,143,255,.25)}
+    .btns{display:flex;flex-direction:column;gap:12px;margin-top:18px}
 
-    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:25px}
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:25px}
     .gallery img{width:100%;border-radius:14px;object-fit:cover;transition:transform .25s, box-shadow .25s;border:3px solid rgba(43,143,255,.35);background:#fff}
     .gallery img:hover{transform:scale(1.02);box-shadow:0 12px 28px rgba(43,143,255,.2)}
 
-    .review{background:rgba(255,255,255,0.8);padding:18px;border-radius:14px;margin:12px 0;color:#1f2a3f;border:1px solid var(--line);box-shadow:0 6px 16px rgba(15,23,42,0.06);border-left:4px solid var(--accent)}
+    /* Reviews */
+    .review{background:rgba(255,255,255,0.9);padding:18px;border-radius:14px;margin:12px 0;color:#1f2a3f;border:1px solid var(--line);box-shadow:0 6px 16px rgba(15,23,42,0.06);border-left:4px solid var(--accent)}
     .review small{color:#6b7486}
 
-    footer{background:rgba(255,255,255,0.8);padding:20px;text-align:center;color:#5d6a81;border-top:1px solid var(--line)}
+    /* Contact features + tooltips */
+    .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:18px 0 36px}
+    .feature{background:rgba(255,255,255,.9);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:14px 16px;position:relative}
+    .feature strong{color:var(--accent)}
+    .feature::after{content:attr(data-tip);position:absolute;left:0;right:0;top:100%;margin-top:10px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:12px 14px;color:var(--ink);box-shadow:0 10px 24px rgba(15,23,42,.08);opacity:0;transform:translateY(4px);transition:opacity .2s, transform .2s;pointer-events:none;z-index:2}
+    .feature:hover::after,.feature:focus-within::after{opacity:1;transform:translateY(0)}
+    .contact-actions{text-align:center;margin:24px 0 28px}
 
+    /* Footer */
+    footer{background:#0f172a;color:#dbe2f1;border-top:1px solid #0b142b}
+    footer a{color:#cfe0ff;text-decoration:none}
+    .footer-wrap{display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px;max-width:1200px;margin:0 auto;padding:40px 10%}
+    .footer-copy{ text-align:center;border-top:1px solid #14213c;padding:12px 10%;color:#8ea3c5}
+
+    /* Forms */
     form.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;max-width:800px;margin:auto}
     input,textarea,select{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;color:var(--ink);width:100%;box-shadow:inset 0 1px 0 rgba(15,23,42,0.03)}
     input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(43,143,255,.15)}
@@ -69,17 +75,28 @@
       .hero h1{font-size:28px}
       .hero .btn{width:100%;max-width:280px}
       .gallery{grid-template-columns:1fr}
+      .footer-wrap{grid-template-columns:1fr}
     }
-      /* Tooltips propres pour les points forts (hover/focus) */
-    .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:18px 0 36px}
-    .feature{background:rgba(255,255,255,.9);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:14px 16px;position:relative}
-    .feature strong{color:var(--accent)}
-    .feature::after{content:attr(data-tip);position:absolute;left:0;right:0;top:100%;margin-top:10px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:12px 14px;color:var(--ink);box-shadow:0 10px 24px rgba(15,23,42,.08);opacity:0;transform:translateY(4px);transition:opacity .2s, transform .2s;pointer-events:none;z-index:2}
-    .feature:hover::after,.feature:focus-within::after{opacity:1;transform:translateY(0)}
-    .contact-actions{text-align:center;margin:20px 0 28px}
+
+    /* ===== FAQ INTERACTIVE (recherche + ouvrir/fermer + chevrons) ===== */
+    .faq-controls{display:flex;gap:10px;align-items:center;justify-content:space-between;max-width:1000px;margin:14px auto 6px}
+    .faq-controls .search{flex:1;display:flex;gap:8px}
+    .faq-controls input[type="search"]{flex:1;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#fff}
+    .faq-controls .mini-btn{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer}
+    .faq-controls .mini-btn:hover{border-color:var(--accent);box-shadow:0 0 0 3px rgba(43,143,255,.12)}
+
+    .faq-item{background:rgba(255,255,255,.95);border:1px solid var(--line);border-radius:12px;margin:12px 0;overflow:hidden;transition:transform .2s, box-shadow .2s}
+    .faq-item:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(43,143,255,.10)}
+    .faq-q{width:100%;text-align:left;background:transparent;border:none;padding:18px 20px;font-weight:700;color:#0b1b38;cursor:pointer;display:flex;gap:12px;align-items:center}
+    .faq-q:focus{outline:none;box-shadow:0 0 0 3px rgba(43,143,255,.18)}
+    .faq-chevron{margin-left:auto;transition:transform .25s ease}
+    .faq-item.open .faq-chevron{transform:rotate(180deg)}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .28s ease}
+    .faq-a-inner{padding:0 20px 18px;color:#3b465a}
   </style>
 </head>
 <body>
+  <!-- HEADER -->
   <header>
     <a class="brand" href="#accueil" title="Retour en haut">
       <img src="logo.jpg" alt="Logo Pure Touch" />
@@ -88,33 +105,39 @@
     <nav>
       <a href="#accueil">Accueil</a>
       <a href="#travaux">Nos Travaux</a>
+      <a href="#zones">Zones</a>
       <a href="#histoire">Mon histoire</a>
       <a href="#avis">Avis Clients</a>
+      <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
+  <!-- ACCUEIL / HERO -->
   <section id="accueil" class="hero">
-    <span class="chip">Île‑de‑France • Intervention 7j/7</span>
+    <img src="logo.jpg" alt="Logo Pure Touch" class="hero-logo" />
+    <span class="chip">Île-de-France • Intervention 7j/7</span>
     <h1>L’art du nettoyage sur mesure</h1>
     <p>Spécialiste du nettoyage et de l’entretien des hottes professionnelles, nous accompagnons les restaurants, hôtels, dark kitchens et collectivités dans la mise en conformité de leurs installations.</p>
     <p>Un système d’extraction mal entretenu augmente considérablement les risques d’incendie et peut entraîner un refus lors des contrôles réglementaires. Nos interventions garantissent une hygiène parfaite et une sécurité maximale, en conformité avec les exigences des assureurs et des commissions de sécurité.</p>
     <p>Nous utilisons des produits certifiés et des équipements de dernière génération pour un nettoyage en profondeur des conduits, moteurs et filtres.</p>
     <p><strong>Notre objectif :</strong> vous offrir une cuisine propre, conforme et sécurisée, tout en prolongeant la durée de vie de vos installations et en assurant la tranquillité de vos équipes.</p>
-    <div class="btn-container">
-      <a href="https://wa.me/33666166228" class="btn cta">Contact WhatsApp</a>
-      <a href="mailto:puretouch.nettoyage@outlook.com" class="btn">Envoyer un mail</a>
+    <div class="btns">
+      <a href="https://wa.me/33666166228" class="btn cta">📱 Contact WhatsApp</a>
+      <a href="mailto:puretouch.nettoyage@outlook.com" class="btn">📧 Envoyer un mail</a>
     </div>
   </section>
 
-    <section id="histoire">
+  <!-- MON HISTOIRE -->
+  <section id="histoire">
     <h2>Mon histoire</h2>
     <p>Nous avons débuté notre parcours au sein d’une entreprise spécialisée dans le nettoyage et le dégraissage de hottes professionnelles. Ces années d’expérience sur le terrain nous ont permis d’acquérir une expertise solide et une réelle exigence de qualité.</p>
     <p>Animés par l’envie d’offrir un service plus proche, réactif et rigoureux, nous avons décidé de créer notre propre entreprise.</p>
-    <p>Aujourd’hui, nous mettons tout notre savoir-faire au service des restaurants, hôtels, dark kitchens et collectivités. Notre mission : garantir des installations propres, conformes et sécurisées, réduire les risques d’incendie et assurer la tranquillité des professionnels face aux contrôles et obligations réglementaires.</p>
+    <p>Aujourd’hui, nous mettons tout notre savoir‑faire au service des restaurants, hôtels, dark kitchens et collectivités. Notre mission : garantir des installations propres, conformes et sécurisées, réduire les risques d’incendie et assurer la tranquillité des professionnels face aux contrôles et obligations réglementaires.</p>
     <p>Chez nous, chaque intervention est réalisée avec le même engagement : un travail soigné, des produits de qualité et un véritable souci du détail.</p>
   </section>
 
+  <!-- TRAVAUX -->
   <section id="travaux">
     <h2>Nos Travaux (avant / après)</h2>
     <p class="sub">Quelques exemples : filtres labyrinthes, gaines, extracteurs, plénums…</p>
@@ -126,6 +149,31 @@
     </div>
   </section>
 
+  <!-- ZONES (image simple) -->
+  <section id="zones">
+    <h2>Zones d’intervention</h2>
+    <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:center">
+      <div style="background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:0 8px 18px rgba(15,23,42,.06)">
+        <img src="carte.webp" alt="Carte des départements d’Île‑de‑France" style="width:100%;height:auto;border-radius:12px;border:3px solid rgba(43,143,255,.35)" />
+      </div>
+      <div class="legend" style="background:rgba(255,255,255,.95);padding:18px;border-radius:12px;border:1px solid var(--line)">
+        <p class="sub">Intervention rapide dans toute l’Île‑de‑France :</p>
+        <ul style="list-style:none;padding:0;margin:0">
+          <li>✔️ Paris (75)</li>
+          <li>✔️ Seine‑et‑Marne (77)</li>
+          <li>✔️ Yvelines (78)</li>
+          <li>✔️ Essonne (91)</li>
+          <li>✔️ Hauts‑de‑Seine (92)</li>
+          <li>✔️ Seine‑Saint‑Denis (93)</li>
+          <li>✔️ Val‑de‑Marne (94)</li>
+          <li>✔️ Val‑d’Oise (95)</li>
+        </ul>
+        <p class="sub" style="margin-top:12px">Devis gratuit • Intervention 7j/7 • Attestation & rapport photos</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVIS -->
   <section id="avis">
     <h2>Ils nous font confiance</h2>
     <div id="reviews">
@@ -135,12 +183,6 @@
       <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Intervention de nuit sans soucis, discret et efficace, super resultat ! » <br><small>— Aïcha, Nanterre · <strong>Le Comptoir de Paris</strong></small></div>
       <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Rien a dire, respect des délais et attestation donnée, c'est carré. » <br><small>— Julien, Ivry · <strong>La Cantine du Chef</strong></small></div>
       <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Deuxième passage chez nous, toujours propre propre. Merci l’équipe. » <br><small>— Fatou, Montreuil · <strong>La Bonne Fourchette</strong></small></div>
-    </div>
-      <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Travail nickel chrome, equipe sympa et sérieuse. Je recommande 100% 👌 » <br><small>— Claire, Boulogne</small></div>
-      <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Un vrai pro, il connais son metier ! ca sent le propre maintenant 😂 » <br><small>— Marco, Saint‑Denis</small></div>
-      <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Intervention de nuit sans soucis, discret et efficace, super resultat ! » <br><small>— Aïcha, Nanterre</small></div>
-      <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Rien a dire, respect des délais et attestation donnée, c'est carré. » <br><small>— Julien, Ivry</small></div>
-      <div class="review">⭐️⭐️⭐️⭐️⭐️ – « Deuxième passage chez nous, toujours propre propre. Merci l’équipe. » <br><small>— Fatou, Montreuil</small></div>
     </div>
 
     <h3 style="margin-top:28px">Laisser votre avis</h3>
@@ -156,11 +198,11 @@
     </form>
   </section>
 
+  <!-- CONTACT -->
   <section id="contact">
     <h2>Nous Contacter</h2>
     <p class="sub">Pour toute demande de devis ou intervention, contactez‑nous directement :</p>
 
-    <!-- Points forts (cartes + info-bulles) -->
     <div class="feature-grid">
       <div class="feature" tabindex="0" role="button" data-tip="Nos tarifs sont étudiés au cas par cas : surface, état de la hotte, accès. On vous donne un prix clair et sans surprise avant intervention.">
         <strong>Prix attractifs</strong>
@@ -189,12 +231,71 @@
     </form>
   </section>
 
+  <!-- FAQ -->
+  <section id="faq">
+    <h2>FAQ — Questions fréquentes</h2>
+    <p class="sub" style="margin-top:-8px">Tout ce que nos clients nous demandent le plus souvent sur le nettoyage de hottes professionnelles.</p>
+
+    <div class="faq-controls">
+      <div class="search">
+        <input type="search" id="faqSearch" placeholder="Rechercher : ex. filtres, urgence, prix…" aria-label="Rechercher dans la FAQ" />
+      </div>
+      <button class="mini-btn" id="openAll" type="button">Tout ouvrir</button>
+      <button class="mini-btn" id="closeAll" type="button">Tout fermer</button>
+    </div>
+
+    <div class="faq">
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>À quelle fréquence faut‑il nettoyer une hotte professionnelle ?</span><svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#1760c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="faq-a"><div class="faq-a-inner">Selon l’activité : <strong>toutes les 3 à 6 mois</strong> pour une restauration classique, <strong>tous les 1 à 3 mois</strong> pour la friture/grill, et au minimum <strong>1 fois/an</strong> pour rester conforme aux exigences des assureurs et commissions de sécurité.</div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Est‑ce obligatoire pour l’assurance et les contrôles ?</span><svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#1760c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="faq-a"><div class="faq-a-inner">Oui. Un système d’extraction encrassé augmente le risque d’incendie et peut conduire à un <strong>refus du contrôle</strong>. Nous fournissons une <strong>attestation d’intervention</strong> et un <strong>rapport photos</strong> pour votre registre de sécurité.</div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Que comprend exactement votre prestation ?</span><svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#1760c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="faq-a"><div class="faq-a-inner">Dégraissage complet de la <strong>hotte</strong>, des <strong>filtres</strong>, <strong>plénums</strong>, <strong>conduits</strong>, <strong>moteurs/extracteurs</strong> et périphériques accessibles. Protection du site, rinçage, remise en état et test de fonctionnement.</div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Faites‑vous des interventions de nuit ou en dehors des horaires ?</span><svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#1760c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="faq-a"><div class="faq-a-inner">Oui, nous pouvons intervenir <strong>de nuit</strong> ou tôt le matin pour ne pas perturber le service. Indiquez vos créneaux, on s’adapte.</div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Quels produits utilisez‑vous ? Sont‑ils sécurisés ?</span><svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#1760c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="faq-a"><div class="faq-a-inner">Nous utilisons des <strong>produits certifiés</strong> adaptés à l’inox et aux circuits alimentaires, ainsi que des <strong>équipements de dernière génération</strong> (dégraissants, mousse, vapeur). Fiches techniques disponibles sur demande.</div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Devez‑vous démonter la hotte ?</span><svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#1760c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="faq-a"><div class="faq-a-inner">Nous déposons les éléments nécessaires (filtres, trappes, certaines grilles). Les démontages lourds sont encadrés et remis <strong>à l’identique</strong> après nettoyage.</div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Que recevrons‑nous après l’intervention ?</span><svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#1760c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="faq-a"><div class="faq-a-inner">Un <strong>rapport photos</strong>, une <strong>attestation</strong> pour votre registre, et des <strong>recommandations</strong> (périodicité, pièces à prévoir, anomalies relevées).</div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Combien de temps dure une intervention ?</span><svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#1760c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="faq-a"><div class="faq-a-inner">Entre <strong>2 et 6 heures</strong> selon la taille de l’installation et le niveau d’encrassement. Nous pouvons scinder en plusieurs passages si besoin.</div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Proposez‑vous des contrats de maintenance ?</span><svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#1760c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="faq-a"><div class="faq-a-inner">Oui : <strong>1 à 3 passages par an</strong> avec rappels automatiques, tarifs préférentiels et <strong>priorité sur les urgences</strong>.</div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Intervenez‑vous sur tout type d’établissement ?</span><svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#1760c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="faq-a"><div class="faq-a-inner">Restaurants, hôtels, <strong>dark kitchens</strong>, traiteurs, cantines, collectivités… Nous adaptons nos méthodes au site et à ses contraintes.</div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Pouvez‑vous intervenir en urgence 24/48h ?</span><svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#1760c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="faq-a"><div class="faq-a-inner">Oui. Nous tenons des créneaux d’<strong>urgence sous 24/48h</strong> selon la zone. Contactez‑nous via <a href="https://wa.me/33666166228">WhatsApp</a> pour accélérer la prise en charge.</div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Comment établissez‑vous les prix ?</span><svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#1760c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="faq-a"><div class="faq-a-inner">Selon la <strong>surface</strong>, l’<strong>accès</strong>, le <strong>niveau d’encrassement</strong> et la <strong>fréquence</strong>. Le devis est <strong>gratuit</strong> et détaillé, sans surprise.</div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Peut‑on cuisiner pendant l’intervention ?</span><svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#1760c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="faq-a"><div class="faq-a-inner">Non, la zone doit être sécurisée et <strong>hors production</strong>. Nous planifions pour ne pas gêner votre activité (souvent de nuit).</div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Prenez‑vous en charge les moteurs et extracteurs en toiture ?</span><svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#1760c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="faq-a"><div class="faq-a-inner">Oui, si l’accès est possible et sécurisé. Nous nettoyons l’<strong>extracteur</strong>, vérifions le sens de rotation et l’état des courroies lorsque c’est accessible.</div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Que faites‑vous des eaux grasses et déchets ?</span><svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#1760c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="faq-a"><div class="faq-a-inner">Nous collectons les résidus, protégeons les zones sensibles, et évacuons les déchets conformément aux <strong>règles locales</strong>. L’espace est laissé propre.</div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Proposez‑vous un nettoyage vapeur ?</span><svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#1760c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="faq-a"><div class="faq-a-inner">Selon les surfaces : la <strong>vapeur</strong> est utile pour désincruster et rincer proprement certains éléments inox et zones difficiles.</div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Comment planifier un passage régulier ?</span><svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#1760c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="faq-a"><div class="faq-a-inner">On fixe ensemble une périodicité (ex. <strong>trimestrielle</strong>) et on envoie des <strong>rappels automatiques</strong> avec créneaux proposés.</div></div></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <p>© 2025 PURE TOUCH — Nettoyage de hottes & ventilation | Île‑de‑France</p>
+    <div class="footer-wrap">
+      <div>
+        <h3 style="margin:0 0 10px;color:#eaf1ff">PURE TOUCH</h3>
+        <p style="margin:0;color:#9fb0c9">Spécialiste de confiance en nettoyage de hottes & systèmes de ventilation en Île‑de‑France. Devis gratuit, rapport photos et attestation pour votre registre de sécurité.</p>
+        <p style="margin:12px 0 0;color:#9fb0c9">Lundi – Dimanche : 24h/24</p>
+      </div>
+      <div>
+        <h4 style="margin:0 0 10px;color:#eaf1ff">Navigation</h4>
+        <ul style="list-style:none;padding:0;margin:0;line-height:1.9">
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#travaux">Nos Travaux</a></li>
+          <li><a href="#zones">Zones</a></li>
+          <li><a href="#avis">Avis Clients</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="margin:0 0 10px;color:#eaf1ff">Contactez‑nous</h4>
+        <p style="margin:0 0 6px"><a href="https://wa.me/33666166228">📱 WhatsApp</a></p>
+        <p style="margin:0 0 6px"><a href="tel:+33666166228">📞 06 66 16 62 28</a></p>
+        <p style="margin:0"><a href="mailto:puretouch.nettoyage@outlook.com">✉️ puretouch.nettoyage@outlook.com</a></p>
+      </div>
+    </div>
+    <div class="footer-copy">© 2025 PURE TOUCH — Tous droits réservés</div>
   </footer>
 
   <script>
-    // Ajout d'avis (affichage immédiat côté client) + nom de restaurant aléatoire
+    // Ajout d'avis côté client + resto aléatoire
     const f = document.getElementById('reviewForm');
     const ul = document.getElementById('reviews');
     const RESTOS = [
@@ -202,7 +303,6 @@
       'Au Petit Fourneau','La Cantine du Chef','La Terrasse Bleue','Le Coin des Saveurs','La Bonne Fourchette'
     ];
     function pickResto(){ return RESTOS[Math.floor(Math.random()*RESTOS.length)]; }
-
     f?.addEventListener('submit', (e)=>{
       e.preventDefault();
       const name = document.getElementById('rname').value.trim();
@@ -217,6 +317,49 @@
       ul.prepend(div);
       f.reset();
     });
+
+    // ===== FAQ interactive : recherche + ouvrir/fermer + chevrons =====
+    (function(){
+      const faqSection = document.querySelector('#faq');
+      const faqList = faqSection?.querySelector('.faq');
+      if(!faqSection || !faqList) return;
+
+      const items = [...faqList.querySelectorAll('.faq-item')];
+      items.forEach(item=>{
+        const q = item.querySelector('.faq-q');
+        const a = item.querySelector('.faq-a');
+        if(!q || !a) return;
+
+        q.setAttribute('aria-expanded','false');
+        a.style.maxHeight = 0;
+
+        function setOpen(state){
+          item.classList.toggle('open', state);
+          q.setAttribute('aria-expanded', state);
+          a.style.maxHeight = state ? (a.scrollHeight + 'px') : 0;
+        }
+
+        q.addEventListener('click', ()=> setOpen(!item.classList.contains('open')));
+        q.addEventListener('keydown', e=>{ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); q.click(); }});
+      });
+
+      // Ouvrir / Fermer tout
+      document.getElementById('openAll')?.addEventListener('click', ()=>{
+        document.querySelectorAll('.faq-item').forEach(it=>{ if(!it.classList.contains('open')) it.querySelector('.faq-q')?.click(); });
+      });
+      document.getElementById('closeAll')?.addEventListener('click', ()=>{
+        document.querySelectorAll('.faq-item.open').forEach(it=> it.querySelector('.faq-q')?.click());
+      });
+
+      // Recherche live
+      document.getElementById('faqSearch')?.addEventListener('input', e=>{
+        const term = e.target.value.toLowerCase();
+        document.querySelectorAll('.faq-item').forEach(it=>{
+          const txt = it.innerText.toLowerCase();
+          it.style.display = txt.includes(term) ? '' : 'none';
+        });
+      });
+    })();
   </script>
 </body>
 </html>
