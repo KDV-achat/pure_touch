@@ -20,11 +20,15 @@
     body{margin:0;font-family:Inter,sans-serif;background:linear-gradient(180deg,var(--bg1),var(--bg2));color:var(--ink)}
 
     /* Header */
-    header{display:flex;align-items:center;justify-content:space-between;padding:15px 40px;background:rgba(255,255,255,0.95);border-bottom:2px solid var(--line);box-shadow:0 4px 10px rgba(15,23,42,0.04);position:sticky;top:0;z-index:10}
+    header{display:flex;align-items:center;justify-content:space-between;padding:15px 40px;background:rgba(255,255,255,0.95);border-bottom:2px solid var(--line);box-shadow:0 4px 10px rgba(15,23,42,0.04);position:sticky;top:0;z-index:10;transition:transform .35s ease, opacity .35s ease}
+    header.hidden{transform:translateY(-100%);opacity:.0}
     header a.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
     header img{height:80px;border-radius:6px;border:2px solid var(--accent)}
     header strong{color:var(--accent);font-size:22px;letter-spacing:1px}
     nav a{color:#384459;text-decoration:none;margin:0 12px;padding-bottom:6px;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+    /* Burger (mobile) */
+    .burger{display:none;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 10px;cursor:pointer}
+    .burger:active{transform:scale(.98)}
     nav a:hover{color:var(--accent);border-color:var(--accent)}
 
     /* Sections */
@@ -32,9 +36,18 @@
     h1,h2{color:#0b1b38}
     .sub{color:var(--muted)}
 
+    /* Zones grid responsive */
+    .zones-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:center}
+    .zones-card{background:linear-gradient(180deg,#eaf4ff,#f7fbff);border:1px solid #d5e7ff;border-radius:14px;padding:14px;box-shadow:0 10px 24px rgba(43,143,255,.12)}
+    .zones-legend{background:rgba(255,255,255,.95);padding:18px;border-radius:12px;border:1px solid var(--line)}
+    .zones-legend ul{list-style:none;padding:0;margin:0}
+    .zones-legend li{margin:6px 0}
+    .zones-legend .sub{margin-top:12px;display:block}
+
     /* Hero */
     .hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:80px 10%;background:rgba(255,255,255,0.7);border-radius:12px;box-shadow:0 8px 20px rgba(15,23,42,0.05)}
-    .hero-logo{width:220px;height:auto;margin-bottom:16px;border:3px solid var(--accent);border-radius:10px;box-shadow:0 6px 16px rgba(43,143,255,.25)}
+    .hero-logo{width:420px;height:auto;margin-bottom:16px;border:none;border-radius:10px;box-shadow:0 6px 16px rgba(43,143,255,.25);animation:heroPulse 8s ease-in-out infinite alternate}
+    @keyframes heroPulse{0%{transform:scale(1);opacity:.98}100%{transform:scale(1.04);opacity:1}}
     .chip{display:inline-block;margin-bottom:8px;border:1px solid var(--accent);border-left:6px solid var(--accent-d);padding:8px 12px;border-radius:999px;color:#1e2a3c;background:rgba(43,143,255,0.08)}
     .btn{background:var(--panel);border:1px solid var(--accent);color:var(--accent);padding:12px 24px;border-radius:12px;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
     .btn:hover{background:var(--accent);color:#fff;transform:translateY(-1px);box-shadow:0 8px 22px rgba(43,143,255,.25)}
@@ -72,10 +85,22 @@
     button{grid-column:1/3}
 
     @media (max-width: 640px){
-      .hero h1{font-size:28px}
-      .hero .btn{width:100%;max-width:280px}
+      header{padding:8px 14px}
+      header img{height:56px}
+      .burger{display:block}
+      nav{position:fixed;top:64px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);display:none;flex-direction:column;gap:10px;padding:12px 16px;z-index:9}
+      nav.open{display:flex}
+
+      section{margin:12px 10px;padding:28px 16px}
+      .hero h1{font-size:26px}
+      .hero-logo{width:260px}
+      .btns{width:100%}
+      .btn{width:100%;max-width:320px;margin:auto}
       .gallery{grid-template-columns:1fr}
       .footer-wrap{grid-template-columns:1fr}
+      .zones-grid{grid-template-columns:1fr}
+      .zones-legend{padding:14px}
+      .zones-legend li{margin:8px 0}
     }
 
     /* ===== FAQ INTERACTIVE (recherche + ouvrir/fermer + chevrons) ===== */
@@ -98,10 +123,8 @@
 <body>
   <!-- HEADER -->
   <header>
-    <a class="brand" href="#accueil" title="Retour en haut">
-      <img src="logo.jpg" alt="Logo Pure Touch" />
-      <strong>PURE TOUCH</strong>
-    </a>
+    <a class="brand"$1</a>
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
     <nav>
       <a href="#accueil">Accueil</a>
       <a href="#travaux">Nos Travaux</a>
@@ -152,13 +175,13 @@
   <!-- ZONES (image simple) -->
   <section id="zones">
     <h2>Zones d’intervention</h2>
-    <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:center">
-      <div style="background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:0 8px 18px rgba(15,23,42,.06)">
+    <div class="zones-grid">
+      <div class="zones-card">
         <img src="carte.webp" alt="Carte des départements d’Île‑de‑France" style="width:100%;height:auto;border-radius:12px;border:3px solid rgba(43,143,255,.35)" />
       </div>
-      <div class="legend" style="background:rgba(255,255,255,.95);padding:18px;border-radius:12px;border:1px solid var(--line)">
+      <div class="zones-legend">
         <p class="sub">Intervention rapide dans toute l’Île‑de‑France :</p>
-        <ul style="list-style:none;padding:0;margin:0">
+        <ul>
           <li>✔️ Paris (75)</li>
           <li>✔️ Seine‑et‑Marne (77)</li>
           <li>✔️ Yvelines (78)</li>
@@ -168,7 +191,7 @@
           <li>✔️ Val‑de‑Marne (94)</li>
           <li>✔️ Val‑d’Oise (95)</li>
         </ul>
-        <p class="sub" style="margin-top:12px">Devis gratuit • Intervention 7j/7 • Attestation & rapport photos</p>
+        <span class="sub">Devis gratuit • Intervention 7j/7 • Attestation & rapport photos</span>
       </div>
     </div>
   </section>
@@ -295,6 +318,23 @@
   </footer>
 
   <script>
+    // Header: visible seulement en haut (disparaît au scroll) + burger mobile
+    (function(){
+      const header = document.querySelector('header');
+      const nav = header.querySelector('nav');
+      const burger = document.getElementById('burger');
+      window.addEventListener('scroll',()=>{
+        const y = window.scrollY || document.documentElement.scrollTop;
+        if(y > 80){ header.classList.add('hidden'); nav.classList.remove('open'); burger?.setAttribute('aria-expanded','false'); }
+        else{ header.classList.remove('hidden'); }
+      });
+      burger?.addEventListener('click',()=>{
+        const isOpen = nav.classList.toggle('open');
+        burger.setAttribute('aria-expanded', isOpen);
+      });
+      nav.querySelectorAll('a').forEach(a=> a.addEventListener('click',()=>{ nav.classList.remove('open'); burger?.setAttribute('aria-expanded','false'); }));
+    })();
+
     // Ajout d'avis côté client + resto aléatoire
     const f = document.getElementById('reviewForm');
     const ul = document.getElementById('reviews');
@@ -318,44 +358,32 @@
       f.reset();
     });
 
-    // ===== FAQ interactive : recherche + ouvrir/fermer + chevrons =====
+    // ===== FAQ interactive =====
     (function(){
       const faqSection = document.querySelector('#faq');
       const faqList = faqSection?.querySelector('.faq');
       if(!faqSection || !faqList) return;
-
       const items = [...faqList.querySelectorAll('.faq-item')];
       items.forEach(item=>{
-        const q = item.querySelector('.faq-q');
-        const a = item.querySelector('.faq-a');
-        if(!q || !a) return;
-
+        const q=item.querySelector('.faq-q');
+        const a=item.querySelector('.faq-a');
+        if(!q||!a) return;
         q.setAttribute('aria-expanded','false');
         a.style.maxHeight = 0;
-
-        function setOpen(state){
-          item.classList.toggle('open', state);
-          q.setAttribute('aria-expanded', state);
-          a.style.maxHeight = state ? (a.scrollHeight + 'px') : 0;
-        }
-
-        q.addEventListener('click', ()=> setOpen(!item.classList.contains('open')));
-        q.addEventListener('keydown', e=>{ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); q.click(); }});
+        function setOpen(state){ item.classList.toggle('open',state); q.setAttribute('aria-expanded',state); a.style.maxHeight = state ? (a.scrollHeight+'px') : 0; }
+        q.addEventListener('click',()=> setOpen(!item.classList.contains('open')));
+        q.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); q.click(); } });
       });
-
-      // Ouvrir / Fermer tout
-      document.getElementById('openAll')?.addEventListener('click', ()=>{
+      document.getElementById('openAll')?.addEventListener('click',()=>{
         document.querySelectorAll('.faq-item').forEach(it=>{ if(!it.classList.contains('open')) it.querySelector('.faq-q')?.click(); });
       });
-      document.getElementById('closeAll')?.addEventListener('click', ()=>{
+      document.getElementById('closeAll')?.addEventListener('click',()=>{
         document.querySelectorAll('.faq-item.open').forEach(it=> it.querySelector('.faq-q')?.click());
       });
-
-      // Recherche live
-      document.getElementById('faqSearch')?.addEventListener('input', e=>{
-        const term = e.target.value.toLowerCase();
+      document.getElementById('faqSearch')?.addEventListener('input',e=>{
+        const term=e.target.value.toLowerCase();
         document.querySelectorAll('.faq-item').forEach(it=>{
-          const txt = it.innerText.toLowerCase();
+          const txt=it.innerText.toLowerCase();
           it.style.display = txt.includes(term) ? '' : 'none';
         });
       });
